@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="heart_beat-animation.css" />
-    <title>Hotdog</title>
-  </head>
- <body>
-  <div class="back"></div>
-
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heartbeat Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
   <div class="wrapper">
     <div class="heart-container">
       <div class="love"></div>
-      <div class="love-1"></div>
-      <div class="love-2"></div>
     </div>
     <h2>My heart when I see you!</h2>
   </div>
+
+  <!-- Floating hearts container -->
+  <div class="floating-hearts"></div>
+
+  <script>
+    // Create floating mini-hearts
+    const container = document.querySelector('.floating-hearts');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('mini-heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 2 + "s"; // speed
+      container.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 600);
+  </script>
 </body>
-
-
 </html>
-
-
